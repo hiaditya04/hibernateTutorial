@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    	<class name="com.raj.pojo.Product" table="PRODUCTS_DATA" >
+    	    <id name="id" column="ID">
+    	        <generator class="increment"/>
+    	    </id>    	    
+    	    <property name="name" column="NAME" />
+    	    <property name="price" column="PRICE" />    
+    	    <one-to-one name="detail" class="com.raj.pojo.ProductDetail" cascade="save-update" />
+    	</class>
+</hibernate-mapping>
+
+<!-- 
+	cascade
+	default cascade='none' : no operation will be transfered to the child object
+	
+	cascade='save-update' 
+		save and update operation will be transfered to the child object
+		
+	cascade='delete'
+		only delete operation will be transfered to the child object
+		
+	cascade='delete-orphan'
+
+	Note: single-valued (One-to-One) associations do not support orphan delete		
+ -->

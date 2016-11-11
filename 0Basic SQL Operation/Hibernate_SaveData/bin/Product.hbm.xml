@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+	<class name="javafiles.Product" table="PRODUCTS_DATA">
+	    
+		<id name="productId" column="ID"  >
+			<generator class="assigned" />
+		</id>
+	 
+		<property name="proName"   unique="false" column="NAME" lazy="false"  />
+		 
+		<property name="date"     type="timestamp"  column="PURCHASE_DATE"   />
+		
+		<property name="price"  />
+		
+	</class>
+	
+</hibernate-mapping>
+
+
+		<!-- 
+		<property name="proName"   >
+		    <column name="NAME" />
+		</property>  
+		-->
+		

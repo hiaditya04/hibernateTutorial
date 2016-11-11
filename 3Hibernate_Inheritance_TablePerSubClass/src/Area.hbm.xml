@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+	<class name="javafiles.Area" table="AREA_DATA">
+		<id name="areaId" column="ID" />						
+		<property name="areaName" column="AREA_NAME" length="20"/>
+		
+		<joined-subclass name="javafiles.Rural" table="RURAL_DATA">
+			<key column="REF_AREA_ID" />		
+			<property name="population" column="POPULATION" length="20"/>
+			<property name="totalSchools"	column="TOTAL_SCHOOLS" length="20"/>
+		</joined-subclass>
+		
+		<joined-subclass name="javafiles.Urban" table="URBAN_DATA">
+			<key column="REF_AREA_ID"/>		
+			<property name="population" column="POPULATION" length="20"/>
+			<property name="totalColleges"	column="TOTAL_COLLEGES" length="20"/>
+		</joined-subclass>	
+
+  	</class>
+	
+</hibernate-mapping>
+
+<!-- 	
+		<union-subclass name="javafiles.Rural" table="RURAL_DATA">
+			<property name="population" column="POPULATION" length="20"/>
+			<property name="totalSchools"	column="TOTAL_SCHOOLS" length="20"/>
+		</union-subclass>
+		
+		<union-subclass name="javafiles.Urban" table="URBAN_DATA">
+			<property name="population" column="POPULATION" length="20"/>
+			<property name="totalColleges"	column="TOTAL_COLLEGES" length="20"/>
+		</union-subclass> 
+-->

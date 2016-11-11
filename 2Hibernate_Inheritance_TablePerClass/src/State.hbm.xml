@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+	<class name="javafiles.State" table="STATE_DATA">
+	    
+		<id name="stateId" column="ID"  /> 
+		<discriminator column="DISCRIMINATOR_AREA_TYPE" type="string" length="20"/>					
+		
+		<property name="stateName" column="STATE_NAME" length="20"/> 
+		
+		<subclass name="javafiles.Rural" discriminator-value="RURAL">		
+		    <property name="areaId"  column="AREA_ID"  />
+		    <property name="areaName"  column="AREA_NAME"  />
+			<property name="totalSchools"  column="TOTAL_SCHOOLS"  />
+			<property name="population"	column="POPULATION" />
+		</subclass>
+		
+		<subclass name="javafiles.Urban" discriminator-value="URBAN">		
+		    <property name="areaId"  column="AREA_ID"  />
+		    <property name="areaName"  column="AREA_NAME"  />
+			<property name="totalColleges" column="TOTAL_COLLEGES" />
+			<property name="population"	column="POPULATION" />
+		</subclass>		
+		
+	</class>
+	
+</hibernate-mapping>
+
+
+<!-- If not providing  <discriminator...> will throw a Mapping exception -->
+<!-- If Not providing discriminator-value="RURAL" will store name attribute value -->

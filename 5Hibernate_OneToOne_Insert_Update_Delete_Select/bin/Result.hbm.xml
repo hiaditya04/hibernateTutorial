@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="javafiles.Result" table="PUPILS_RESULTS_DATA">
+	
+		<id name="rollNumber"  column="ROLL_NUMBER" >	
+		    <generator class="foreign">
+		        <param name="property">pupil</param>
+		    </generator>
+		</id>				
+		
+		<property name="mathsMarks" column="MATHS_MARKS" />
+		<property name="scienceMarks" column="SCIENCE_MARKS" />
+		<property name="totalMarks" column="TOTAL_MARKS" />		
+		<one-to-one name="pupil"   class="javafiles.Pupil" />		
+	</class>
+</hibernate-mapping>
+
+<!-- 
+	1. cascade attribute transfers operations done on one object onto its related child objects
+	2. cascade = "all" mean operations (insert, delete, update) at parent object will be effected to child object
+	3. cascade = "none" means no operations will be transfers to the child class
+-->		

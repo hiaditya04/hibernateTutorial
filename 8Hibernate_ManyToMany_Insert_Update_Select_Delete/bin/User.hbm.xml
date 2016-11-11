@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="javafiles.User" table="USERS_DATA">
+	
+		<id name="id"  column="USER_ID" >	
+			<generator class="increment"/>
+		</id>				
+		<property name="name" column="NAME" length="20"/>
+		<property name="address" column="ADDRESS" length="35"/>
+		
+		<set name="mobilePhones" cascade="all" inverse="false" table="MODILE_PHONES_AND_USERS_REL">
+			<key column="MOBILE_USER_ID"/>
+			<many-to-many class="javafiles.MobilePhone" column="MOBILE_PHONE_ID" />
+		</set>	
+		
+	</class>
+</hibernate-mapping>
+
+	

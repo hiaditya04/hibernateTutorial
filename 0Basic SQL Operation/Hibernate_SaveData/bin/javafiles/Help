@@ -1,0 +1,28 @@
+	
+	Note1 : In below ID tag "<generator class="assigned" />" means user will assigned/set the primary key value for the respective table's primary key column
+	
+	<id name="productId" column="pid"  >
+		<generator class="assigned" />
+	</id>
+	
+	Note2 : In below ID tag "<generator class="increment" />" means hibernate will assigned/set the primary key value for the respective table's primary key column
+	it will increment the value by one with reference to the last highest value into the table for the same column
+	if there is no entry into the table then it will start from one (0+1=1)
+	
+	<id name="productId" column="pid"  >
+		<generator class="increment" />
+	</id>
+			
+	Note3 : Here it will increment the value by 10 as we are using the user created sequence "UserSequence"
+	
+	create sequence UserSequence incremented by 10;
+	
+	<id name="productId" column="pid">
+		<generator class="sequence">
+			<param name="sequence">UserSequence</param>
+		</generator>
+	</id>
+	
+	
+	
+	
