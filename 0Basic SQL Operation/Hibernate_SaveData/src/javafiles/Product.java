@@ -2,6 +2,13 @@ package javafiles;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TBLM_PRODUCT")
 public class Product{
 
 	private int productId;
@@ -13,6 +20,8 @@ public class Product{
 	{
 	    this.productId = productId;
 	}
+	@Id
+	@Column(name="ID")
 	public int getProductId()
 	{
 	    return productId;
@@ -22,6 +31,7 @@ public class Product{
 	{
 	    this.proName = proName;
 	}
+	@Column(name="NAME")
 	public String getProName()
 	{
 	    return proName;
@@ -31,6 +41,7 @@ public class Product{
 	{
 	    this.price = price;
 	}
+	@Column(name="PRICE")
 	public Integer getPrice()
 	{
 	    return price;
@@ -38,6 +49,7 @@ public class Product{
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	@Column(name="CREATED_DATE")
 	public Date getDate() {
 		return date;
 	}
