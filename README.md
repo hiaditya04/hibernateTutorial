@@ -1,2 +1,2 @@
 # hibernateTutorial
-This repository all the major hibernate operation tutorials
+This repository has all the major hibernate operation tutorials
