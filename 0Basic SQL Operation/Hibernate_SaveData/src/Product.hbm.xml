@@ -4,7 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    
+     <!-- main configuration file for hibernatr pojo mapping-->
 	<class name="javafiles.Product" table="PRODUCTS_DATA">
 	    
 		<id name="productId" column="ID"  >
